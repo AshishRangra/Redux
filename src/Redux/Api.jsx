@@ -1,4 +1,4 @@
-let url = "http://localhost:8000/Categories_children";
+let url = "http://localhost:8001/register";
 
 export const FetchData = async () => {
   try {
@@ -10,3 +10,16 @@ export const FetchData = async () => {
     console.log(e);
   }
 };
+
+// let url2 = "http://localhost:8001/register";
+
+// export const FetchData2 = async () => {
+//   try {
+//     const res = await fetch(url2);
+//     const data = await res.json();
+//     console.log(data);
+//     return data;
+//   } catch (e) {
+//     console.log(e);
+//   }
+// };
