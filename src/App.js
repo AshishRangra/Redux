@@ -99,25 +99,49 @@ const obj = {
 
 const App = () => {
   const [arr, setArr] = useState([]);
-  const [val, setVal] = useState({ state: "" });
+  const [val, setVal] = useState({ state: "", city: "" });
   const handleChange = (e) => {
-    setVal({ state: e.target.value });
-    setArr(obj[val.state]);
+    setVal({ ...val, state: e.target.value });
+    setArr(obj[e.target.value]);
   };
-
+  const handleCityChange = (e) => {
+    setVal({ ...val, city: e.target.value });
+  };const arr1=[1,2,3,4];
   return (
     <div>
+  <p>
+  {arr1.filter(value => value === 2).map((value, index) => (
+    <span key={index}>{value}</span>
+  ))}
+</p>
       <div>
         <select name="state" onChange={handleChange}>
-          {Object.keys(obj).map((value, index) => (
+          {
+            Object.keys(obj).map((value, index) => (
             <option key={index}>{value}</option>
           ))}
         </select>
-        <select>
-          {arr &&
-            arr.map((value, index) => <option key={index}>{value}</option>)}
+        <select name="city" onChange={handleCityChange}>
+          {arr.map((value, index) => (
+            <option key={index}>{value}</option>
+          ))}
         </select>
       </div>
+      {val.state && arr ? (
+        <div>
+          {val.state}-{val.city}
+        </div>
+      ) : (
+        ""
+      )}
+      <button
+        onClick={() => {
+          setArr([]);
+          setVal({ state: "", city: "" });
+        }}
+      >
+        clear
+      </button>
     </div>
   );
 };
