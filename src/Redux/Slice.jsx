@@ -12,6 +12,8 @@ const initialState = {
 //   error2:null,
 // }
 export const fetchApi = createAsyncThunk("firstRedux/fetchApi", async () => {
+  // A function that accepts a Redux action type string and a callback function that should return a promise.
+  // The thunk will dispatch an action with the provided type with the returned value once the promise is resolved.
   try {
     const res = await FetchData();
     return res;
@@ -40,6 +42,7 @@ export const userSlice = createSlice({
       });
   },
 });
+
 // export const fetchApi2=createAsyncThunk("secondRedux/fetchApi2",async()=>{
 //   try{
 //     const res=await FetchData2();
