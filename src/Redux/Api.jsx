@@ -1,4 +1,4 @@
-let url = "http://localhost:8001/register";
+let url = "http://localhost:8000/register";
 
 export const FetchData = async () => {
   try {
